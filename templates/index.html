@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flights over Southern India</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="../static/fevicon.jpg" type="image/jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Showing live flights over Southern India region</h1>
+    <table>
+        <tr>
+            <th>Callsign</th>
+            <th>Country</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Altitude (m)</th>
+            <th>Velocity (km/h)</th>
+            <th>Heading (°)</th>
+        </tr>
+        {% for flight in flights %}
+        <tr>
+            <td>{{ flight.callsign }}</td>
+            <td>{{ flight.origin_country }}</td>
+            <td>{{ flight.latitude }}</td>
+            <td>{{ flight.longitude }}</td>
+            <td>{{ flight.altitude }}</td>
+            <td>{{ flight.velocity }}</td>
+            <td>{{ flight.heading }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <script src="../js/index.js"></script>
+    <footer>
+        <p>Powered by <a href="https://opensky-network.org/">OpenSky</a></p>
+    </footer>
+</body>
+</html>
